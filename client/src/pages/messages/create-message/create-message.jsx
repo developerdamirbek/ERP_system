@@ -21,6 +21,12 @@ export const CreateMessage = () => {
   };
 
   const handleSave = () => {
+
+    if (!firstName || !lastName || !img) {
+      alert("Please fill in all fields");
+      return;
+    }
+
     const newMessage = {
       firstName: firstName,
       lastName: lastName,
@@ -33,7 +39,6 @@ export const CreateMessage = () => {
         setLastName('');
         setImg('');
         toast.success("Item saved to Message List!")
-
       })
       .catch(error => {
         toast.error("Something went wrong!")

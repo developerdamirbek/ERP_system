@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { request } from '../../../config/request'
 import { Typography, Stack, TextField, Button } from '@mui/material'
+import { toast } from 'react-toastify';
 
 export const EditMessage = () => {
   const [data, setData] = useState([]);
@@ -29,6 +30,7 @@ export const EditMessage = () => {
           return newDataArray;
         });
         setEditingId(null);
+        toast.success("Items was saved!")
       })
       .catch(error => {
         toast.error("Something went wrong!")
@@ -39,10 +41,11 @@ export const EditMessage = () => {
     request.delete(`/messages/${id}`)
       .then(() => {
         setData(prevData => prevData.filter(item => item.id !== id));
+        toast.info("Item was deleted!")
+
       })
       .catch(error => {
         toast.error("Something went wrong!")
-
       });
   };
 

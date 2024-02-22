@@ -15,6 +15,7 @@ export const Login = () => {
         request.post("/login", data).then((res) => {
             console.log(res.data);
             saveState('user', res.data)
+            console.log(res.data);
             toast.success("User submitted successfully!")
         }).catch((error) => {
             toast.error(error?.message)

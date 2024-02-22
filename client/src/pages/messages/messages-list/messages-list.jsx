@@ -27,7 +27,9 @@ export const MessagesList = () => {
               {item.lastName}
             </Typography>
           </Stack>
-              <img src={item.img} width="100px" height="100px" alt="" />
+          <Stack sx={{width: '100px', height:"100px"}}>
+              <img style={{objectFit: "cover", width:"100%"}} src={item.img} width="100px" height="100px" alt="" />
+          </Stack>
         </Stack>)}
       </Stack>
     </div>
