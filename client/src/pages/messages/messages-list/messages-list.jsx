@@ -16,21 +16,28 @@ export const MessagesList = () => {
         Message List
       </Typography>
       <Stack sx={{ height: "500px", overflowY: "auto" }}>
-        {data.map((item) => <Stack marginBottom={'20px'} display={'flex'} justifyContent={'space-between'} padding={"20px"} borderRadius={'10px'} border={'1px solid #444'} width={'95%'} key={item.id}>
-          <Stack>
-            <Typography variant='h6'>
-              {item.firstName}
-            </Typography>
-          </Stack>
-          <Stack>
-            <Typography variant='h6'>
-              {item.lastName}
-            </Typography>
-          </Stack>
-          <Stack sx={{width: '100px', height:"100px"}}>
-              <img style={{objectFit: "cover", width:"100%"}} src={item.img} width="100px" height="100px" alt="" />
-          </Stack>
-        </Stack>)}
+        <div>
+          {data.map((item) => (
+            <Stack marginBottom={'20px'} display={'flex'} justifyContent={'space-between'} padding={"20px"} borderRadius={'10px'} border={'1px solid #444'} width={'95%'} key={item.id}>
+                <div style={{display:"flex", alignItems:"center", gap:"20px"}}>
+                <Stack sx={{ width: '100px', height: "100px" }}>
+                  <img style={{ objectFit: "cover", width: "100%" }} src={item.img} width="100px" height="100px" alt="" />
+                </Stack>
+                <Stack>
+                  <Typography variant='h6'>
+                    {item.firstName}
+                  </Typography>
+                </Stack>
+                <Stack>
+                  <Typography variant='h6'>
+                    {item.lastName}
+                  </Typography>
+                </Stack>
+
+            </div>
+              </Stack>
+          ))}
+        </div>
       </Stack>
     </div>
   )

@@ -9,11 +9,14 @@ export const MainLayout = () => {
     if (!user) return <Navigate to="/" replace />
 
     return (
-        <Grid container sx={{height:"0"}} spacing={2}>
+        <Grid container spacing={2}>
             <Grid item xs={3} sx={{ bgcolor: "#101418", height: '100vh' }} >
-                <Stack height={'100%'} padding={'20px'}>
-                    <Typography variant='h4' color={"#fff"} paddingBottom={'20px'} borderBottom={'1px solid #fff'} marginBottom={'30px'}>
-                        ERP System
+                <Stack height={'100%'} padding={'20px'} paddingBottom={'0px'}>
+                    <Typography variant='h4' color={"#fff"}>
+                        {user.user.firstname}
+                    </Typography>
+                    <Typography variant='h6' color={"#fff"} paddingBottom={'20px'} borderBottom={'1px solid #fff'} marginBottom={'30px'}>
+                        {user.user.email}
                     </Typography>
                     <div className='button-group'>
                         <Link to="/app">
@@ -34,7 +37,7 @@ export const MainLayout = () => {
                     </div>
                 </Stack>
             </Grid>
-            <Grid item xs={9} padding={'20px'} paddingTop={'40px'} sx={{ bgcolor: "#FFF" }} >
+            <Grid item xs={9} padding={'20px'} paddingBottom={'0px'} paddingTop={'40px'} sx={{ bgcolor: "#FFF" }} >
                 <Stack height={'100%'}>
                     <Outlet />
                 </Stack>
